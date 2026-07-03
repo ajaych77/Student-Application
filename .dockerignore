@@ -1,0 +1,10 @@
+target/
+.git/
+.github/
+.idea/
+.vscode/
+.settings/
+.classpath
+.project
+*.log
+.env
