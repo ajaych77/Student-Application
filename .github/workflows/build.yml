@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      IMAGE_NAME: ajaych65/student-application
+      IMAGE_NAME: ajay65/student-application
 
     steps:
       - name: Checkout Repository
