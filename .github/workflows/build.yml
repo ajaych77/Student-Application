@@ -49,3 +49,16 @@ jobs:
           tags: |
             ${{ env.IMAGE_NAME }}:latest
             ${{ env.IMAGE_NAME }}:${{ github.sha }}
+
+      - name: Deploy to EC2 via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host:  ${{EC2_HOST}}
+          username:  ${{EC2_USER}}
+          key:  ${{EC2_SSH_KEY}}
+          script:  |
+            cd /home/ubuntu/Student-Application
+
+            docker compose pull
+            docker compose down
+            docker compose up -d
