@@ -1,4 +1,4 @@
-version: "3.9"
+
 
 services:
 
@@ -18,7 +18,7 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
 
-    mem_limit: 1g
+    mem_limit: 512m
     cpus: "1.0"
 
     healthcheck:
@@ -29,8 +29,7 @@ services:
       start_period: 30s
 
   student-application:
-    build:
-      context: .
+	image: ajay65/student-application:latest
       
 
     container_name: student-application
@@ -49,7 +48,7 @@ services:
       mysql:
         condition: service_healthy
 
-    mem_limit: 512m
+    mem_limit: 384m
     cpus: "1.0"
 
     healthcheck:
